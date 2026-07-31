@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TikTok Auth - Aethrix</title>
+<style>
+  body { font-family: sans-serif; padding: 40px; max-width: 600px; margin: 0 auto; color: #222; }
+  #msg { font-size: 1.2rem; }
+  code { background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 0.9rem; word-break: break-all; }
+</style>
+</head>
+<body>
+<h2>Aethrix - TikTok Authorization</h2>
+<p id="msg">Completing authorization...</p>
+<p id="code-display"></p>
+<script>
+var params = new URLSearchParams(window.location.search);
+var code = params.get('code');
+if (code) {
+  document.getElementById('msg').textContent = 'Authorization complete. The desktop app will capture this automatically.';
+  document.getElementById('code-display').innerHTML = 'Code: <code>' + code + '</code>';
+  document.title = 'aethrix_code=' + code;
+} else {
+  document.getElementById('msg').textContent = 'No authorization code received. Please try again.';
+}
+</script>
+</body>
+</html>
